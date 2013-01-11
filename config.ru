@@ -1,0 +1,3 @@
+require './mars'
+
+MarsApp.run!

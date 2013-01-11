@@ -1,0 +1,15 @@
+<form>
+    <button formaction="/" class="btn btn-small btn-secondary" type="submit" formmethod="get" >Back</button>
+</form>
+
+<form>
+    <h3 class="form-signin-heading">Topic Details</h3>
+    <p><b>ID:</b> <%=  @t.id %></p>
+    <p><b>Name:</b> <%= @t.name %></p>
+    <p><b>Title:</b> <%=  @t.title %></p>
+    <p><b>URL:</b> <a href="<%=  @t.url %>"><%=  @t.url %></a></p>
+    <p><b>Description:</b> <%= @t.description %></p>
+    <!-- <input type="hidden" name="_method" value="DELETE" /> -->
+    <button class="btn btn-large btn-danger" type="submit" name="submit" formmethod="post" formaction="/delete/<%=  @t.id %>" >DELETE</button>
+    <button class="btn btn-large btn-primary" type="submit" name="submit" formmethod="get" formaction="/edit/<%=  @t.id %>" >Edit</button>
+</form>

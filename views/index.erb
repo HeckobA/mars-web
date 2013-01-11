@@ -1,0 +1,66 @@
+<h1 class="form-signin-heading">30 Seconds</h1>
+
+<form>
+    <button class="btn btn-large btn-success" type="submit" formmethod="get" formaction="/new" >New Topic</button>
+</form>
+
+<a href="#CSV_upload_modal" role="button" class="btn btn-success" data-toggle="modal">Upload New Topics via CSV File</a>
+<div id="CSV_upload_modal" class="modal hide fade">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Upload New Topics:</h3>
+    </div>
+
+    <form action="/upload.csv" method="post" enctype="multipart/form-data">
+        <div class="modal-body">
+
+            <p>
+                <label for="file">Upload CSV File:</label>
+                <input type="file" name="data">
+            </p>
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            <button class="btn btn-primary" type="submit">Upload</button>
+        </div>
+    </form>
+</div>
+
+<h4 class="form-signin-heading">List of Topics</h4>
+
+<form>
+    <table border="4">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Title</td>
+            <td>URL</td>
+            <td>Description</td>
+            <td>Actions</td>
+        </tr>
+        <% @t.each do |topic| %>
+            <tr>
+                <td><%=  topic.id %> </td>
+                <td><%=  topic.name %> </td>
+                <td><%=  topic.title %> </td>
+                <td><a href="<%=  topic.url %>"><%=  topic.url %> </a> </td>
+                <td><%=  topic.description%> </td>
+                <td>
+
+                    <div class="btn-group">
+                        <button formaction="/show/<%= topic.id %>" formmethod="get" class="btn btn-info">View</button>
+                        <button formaction="/edit/<%= topic.id %>" formmethod="get"class="btn btn-primary">Edit</button>
+                    </div>
+
+                </td>
+            </tr>
+        <% end %>
+    </table>
+    <br>
+    <button formaction="/topics.json" formmethod="get" class="btn btn-info">Get data (json)</button>
+    <button formaction="/topics.csv" formmethod="get" class="btn btn-info">Get data (csv)</button>
+</form>
+
+
+

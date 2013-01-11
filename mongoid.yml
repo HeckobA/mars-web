@@ -1,0 +1,14 @@
+development:
+  sessions:
+    default:
+      database: mars
+      hosts:
+        - localhost:27017
+
+test:
+  sessions:
+    default:
+      database: mars-test
+      hosts:
+        - localhost:27017
+

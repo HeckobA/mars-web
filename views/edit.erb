@@ -1,0 +1,14 @@
+<form action="/">
+    <button class="btn btn-small btn-secondary" type="submit" formmethod="get" >Cancel</button>
+</form>
+
+<form class="form-signin" action="/update/<%= @t.id %>">
+    <h3 class="form-signin-heading">Edit</h3>
+    Name: <input type="text" class="input-block-level" value="<%= @t.name %>" name="topic[name]">
+    Title: <input type="text" class="input-block-level" value="<%= @t.title %>" name="topic[title]">
+    URL: <input type="text" class="input-block-level" value="<%= @t.url %>" name="topic[url]">
+    Title: <input type="text" class="input-block-level" value="<%= @t.description %>" name="topic[description]">
+
+    <button class="btn btn-large btn-primary" type="submit" name="submit" formmethod="post">Update</button>
+
+</form>
