@@ -9,6 +9,8 @@ class MarsApp <Sinatra::Base
   register Sinatra::Flash
 
   set :public_folder, File.dirname(__FILE__) + '/static'
+  set :run, false
+  set :port, ENV['PORT'] || '4567'
 
   enable :sessions, :inline_templates
   enable :methodoverride
