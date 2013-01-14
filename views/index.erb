@@ -27,9 +27,15 @@
     </form>
 </div>
 
-<h4 class="form-signin-heading">List of Topics</h4>
+
 
 <form>
+ <!--   <label class="checkbox">
+        <input type="checkbox" name="check_delete"> Instant Delete (Warning: items will instantly delete if delete button is pressed)
+    </label> -->
+
+    <h4 class="form-signin-heading">List of Topics</h4>
+
     <table border="4">
         <tr>
             <td>ID</td>
@@ -51,6 +57,7 @@
                     <div class="btn-group">
                         <button formaction="/show/<%= topic.id %>" formmethod="get" class="btn btn-info">View</button>
                         <button formaction="/edit/<%= topic.id %>" formmethod="get"class="btn btn-primary">Edit</button>
+                        <button class="btn btn-danger" type="submit" name="submit" formmethod="post" formaction="/delete/<%=  topic.id %>" >DELETE</button>
                     </div>
 
                 </td>
